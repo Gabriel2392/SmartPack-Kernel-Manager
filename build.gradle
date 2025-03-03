@@ -1,14 +1,14 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.materialLibVersion = '1.8.0'
+    ext.materialLibVersion = '1.12.0'
 
     repositories {
         mavenCentral()
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.3.1'
+        classpath 'com.android.tools.build:gradle:8.8.2'
     }
 }
 
@@ -24,6 +24,6 @@ allprojects {
     }
 }
 
-task clean(type: Delete) {
+tasks.register('clean', Delete) {
     delete rootProject.buildDir
 }
