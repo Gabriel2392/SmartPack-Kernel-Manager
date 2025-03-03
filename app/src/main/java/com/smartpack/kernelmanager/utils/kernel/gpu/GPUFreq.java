@@ -93,6 +93,7 @@ public class GPUFreq {
     private static final String AVAILABLE_EXYNOS_FREQS = "/sys/kernel/gpu/gpu_freq_table";
     private static final String SCALING_EXYNOS_GOVERNOR = "/sys/kernel/gpu/gpu_governor";
     private static final String AVAILABLE_EXYNOS_GOVERNORS = "/sys/kernel/gpu/gpu_available_governor";
+    private static final String EXYNOS_GPUBUSY = "/sys/kernel/gpu/gpu_busy";
 
     private final List<String> mGpuBusys = new ArrayList<>();
     private final HashMap<String, Integer> mCurrentFreqs = new HashMap<>();
@@ -106,6 +107,7 @@ public class GPUFreq {
     {
         mGpuBusys.add(KGSL3D0_GPUBUSY);
         mGpuBusys.add(KGSL3D0_DEVFREQ_GPUBUSY);
+        mGpuBusys.add(EXYNOS_GPUBUSY);
 
         mCurrentFreqs.put(CUR_KGSL3D0_FREQ, 1000000);
         mCurrentFreqs.put(CUR_KGSL3D0_DEVFREQ_FREQ, 1000000);
@@ -384,6 +386,9 @@ public class GPUFreq {
 
     public int getBusy() {
         String value = Utils.readFile(BUSY);
+        if (BUSY.equals(EXYNOS_GPUBUSY)) {
+            return Integer.parseInt(value.replace("%", "").strip());
+        }
         float arg1 = Utils.strToFloat(value.split(" ")[0]);
         float arg2 = Utils.strToFloat(value.split(" ")[1]);
         return arg2 == 0 ? 0 : Math.round(arg1 / arg2 * 100f);
