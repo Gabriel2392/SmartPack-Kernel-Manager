@@ -243,6 +243,6 @@ public class NPUFreq {
     }
 
     private void run(String command, String id, Context context) {
-        Control.runSetting(command, ApplyOnBootFragment.GPU, id, context);
+        Control.runSetting(command, ApplyOnBootFragment.NPU, id, context);
     }
 }

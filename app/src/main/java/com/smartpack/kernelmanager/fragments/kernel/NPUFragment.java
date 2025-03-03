@@ -53,7 +53,7 @@ public class NPUFragment extends RecyclerViewFragment {
 
     private void npuInit(List<RecyclerViewItem> items) {
         CardView npuCard = new CardView(getActivity());
-        npuCard.setTitle(getString(R.string.gpu));
+        npuCard.setTitle(getString(R.string.npu));
 
         if (mNPUFreq.hasCurFreq() && mNPUFreq.getAvailableFreqs() != null) {
             mCurFreq = new XYGraphView();
