@@ -87,6 +87,13 @@ public class GPUFreq {
     private static final String SCALING_POWERVR_GOVERNOR = "/sys/devices/platform/dfrgx/devfreq/dfrgx/governor";
     private static final String AVAILABLE_POWERVR_GOVERNORS = "/sys/devices/platform/dfrgx/devfreq/dfrgx/available_governors";
 
+    private static final String MAX_EXYNOS_FREQ = "/sys/kernel/gpu/gpu_max_clock";
+    private static final String MIN_EXYNOS_FREQ = "/sys/kernel/gpu/gpu_min_clock";
+    private static final String CUR_EXYNOS_FREQ = "/sys/kernel/gpu/gpu_clock";
+    private static final String AVAILABLE_EXYNOS_FREQS = "/sys/kernel/gpu/gpu_freq_table";
+    private static final String SCALING_EXYNOS_GOVERNOR = "/sys/kernel/gpu/gpu_governor";
+    private static final String AVAILABLE_EXYNOS_GOVERNORS = "/sys/kernel/gpu/gpu_available_governor";
+
     private final List<String> mGpuBusys = new ArrayList<>();
     private final HashMap<String, Integer> mCurrentFreqs = new HashMap<>();
     private final HashMap<String, Integer> mMaxFreqs = new HashMap<>();
@@ -105,12 +112,14 @@ public class GPUFreq {
         mCurrentFreqs.put(CUR_OMAP_FREQ, 1000000);
         mCurrentFreqs.put(CUR_TEGRA_FREQ, 1000000);
         mCurrentFreqs.put(CUR_POWERVR_FREQ, 1000);
+        mCurrentFreqs.put(CUR_EXYNOS_FREQ, 1000);
 
         mMaxFreqs.put(MAX_KGSL3D0_FREQ, 1000000);
         mMaxFreqs.put(MAX_KGSL3D0_DEVFREQ_FREQ, 1000000);
         mMaxFreqs.put(MAX_OMAP_FREQ, 1000000);
         mMaxFreqs.put(MAX_TEGRA_FREQ, 1000000);
         mMaxFreqs.put(MAX_POWERVR_FREQ, 1000);
+        mMaxFreqs.put(MAX_EXYNOS_FREQ, 1000);
 
         if (hasGPUMinClockMHZ()) {
             mMinFreqs.put(MIN_CLOCK_MHZK_GSL3D0_DEVFREQ_FREQ, 1);
@@ -119,21 +128,25 @@ public class GPUFreq {
         }
         mMinFreqs.put(MIN_TEGRA_FREQ, 1000000);
         mMinFreqs.put(MIN_POWERVR_FREQ, 1000);
+        mMinFreqs.put(MIN_EXYNOS_FREQ, 1000);
 
         mAvailableFreqs.put(AVAILABLE_KGSL3D0_FREQS, 1000000);
         mAvailableFreqs.put(AVAILABLE_KGSL3D0_DEVFREQ_FREQS, 1000000);
         mAvailableFreqs.put(AVAILABLE_OMAP_FREQS, 1000000);
         mAvailableFreqs.put(AVAILABLE_TEGRA_FREQS, 1000000);
         mAvailableFreqs.put(AVAILABLE_POWERVR_FREQS, 1000);
+        mAvailableFreqs.put(AVAILABLE_EXYNOS_FREQS, 1000);
 
         mScalingGovernors.add(SCALING_KGSL3D0_GOVERNOR);
         mScalingGovernors.add(SCALING_KGSL3D0_DEVFREQ_GOVERNOR);
         mScalingGovernors.add(SCALING_OMAP_GOVERNOR);
         mScalingGovernors.add(SCALING_POWERVR_GOVERNOR);
+        mScalingGovernors.add(SCALING_EXYNOS_GOVERNOR);
 
         mAvailableGovernors.add(AVAILABLE_KGSL3D0_DEVFREQ_GOVERNORS);
         mAvailableGovernors.add(AVAILABLE_OMAP_GOVERNORS);
         mAvailableGovernors.add(AVAILABLE_POWERVR_GOVERNORS);
+        mAvailableGovernors.add(AVAILABLE_EXYNOS_GOVERNORS);
 
         mTunables.add(TUNABLES_OMAP);
     }
