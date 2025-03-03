@@ -19,6 +19,8 @@
  */
 package com.smartpack.kernelmanager.services.boot;
 
+import static android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_SHORT_SERVICE;
+
 import android.Manifest;
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -82,7 +84,7 @@ public class ApplyOnBootService extends Service {
                     this, CHANNEL_ID);
             builder.setContentTitle(getString(R.string.apply_on_boot))
                     .setSmallIcon(R.drawable.ic_on_boot_notification);
-            startForeground(NotificationId.APPLY_ON_BOOT, builder.build());
+            startForeground(NotificationId.APPLY_ON_BOOT, builder.build(), FOREGROUND_SERVICE_TYPE_SHORT_SERVICE);
         }
     }
 
