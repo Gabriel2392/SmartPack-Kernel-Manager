@@ -60,6 +60,7 @@ import com.smartpack.kernelmanager.fragments.kernel.KLapseFragment;
 import com.smartpack.kernelmanager.fragments.kernel.KSMFragment;
 import com.smartpack.kernelmanager.fragments.kernel.LMKFragment;
 import com.smartpack.kernelmanager.fragments.kernel.MiscFragment;
+import com.smartpack.kernelmanager.fragments.kernel.NPUFragment;
 import com.smartpack.kernelmanager.fragments.kernel.ScreenFragment;
 import com.smartpack.kernelmanager.fragments.kernel.SoundFragment;
 import com.smartpack.kernelmanager.fragments.kernel.ThermalFragment;
@@ -95,6 +96,7 @@ import com.smartpack.kernelmanager.utils.kernel.io.IO;
 import com.smartpack.kernelmanager.utils.kernel.ksm.KSM;
 import com.smartpack.kernelmanager.utils.kernel.led.LED;
 import com.smartpack.kernelmanager.utils.kernel.lmk.LMK;
+import com.smartpack.kernelmanager.utils.kernel.npu.NPU;
 import com.smartpack.kernelmanager.utils.kernel.screen.KLapse;
 import com.smartpack.kernelmanager.utils.kernel.screen.Screen;
 import com.smartpack.kernelmanager.utils.kernel.sound.Sound;
@@ -182,7 +184,7 @@ public class NavigationActivity extends BaseActivity
         mFragments.add(new NavigationActivity.NavigationFragment(R.string.statistics));
         mFragments.add(new NavigationActivity.NavigationFragment(R.string.overall, OverallFragment.class, R.drawable.ic_dashboard));
         mFragments.add(new NavigationActivity.NavigationFragment(R.string.device, DeviceFragment.class, R.drawable.ic_device));
-        if (Device.MemInfo.getInstance().getItems().size() > 0) {
+        if (!Device.MemInfo.getInstance().getItems().isEmpty()) {
             mFragments.add(new NavigationActivity.NavigationFragment(R.string.memory, MemoryFragment.class, R.drawable.ic_save));
         }
         mFragments.add(new NavigationActivity.NavigationFragment(R.string.inputs, InputsFragment.class, R.drawable.ic_keyboard));
@@ -196,6 +198,9 @@ public class NavigationActivity extends BaseActivity
         }
         if (GPU.supported()) {
             mFragments.add(new NavigationActivity.NavigationFragment(R.string.gpu, GPUFragment.class, R.drawable.ic_gpu));
+        }
+        if (NPU.supported()) {
+            mFragments.add(new NavigationActivity.NavigationFragment(R.string.npu, NPUFragment.class, R.drawable.ic_npu));
         }
         if (Thermal.supported()) {
             mFragments.add(new NavigationActivity.NavigationFragment(R.string.thermal, ThermalFragment.class, R.drawable.ic_temperature));

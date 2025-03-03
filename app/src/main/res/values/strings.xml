@@ -67,6 +67,7 @@
     <string name="cpu_hotplug">CPU Hotplug</string>
     <string name="cpu_voltage">CPU Voltage</string>
     <string name="gpu">GPU</string>
+    <string name="npu">NPU</string>
     <string name="thermal">Thermal</string>
     <string name="battery">Battery</string>
     <string name="sound">Sound</string>
@@ -98,6 +99,7 @@
     <string name="offline">Offline</string>
     <string name="core">Core %d</string>
     <string name="gpu_freq">GPU Frequency</string>
+    <string name="npu_freq">NPU Frequency</string>
     <string name="refresh">Refresh</string>
     <string name="reset">Reset</string>
     <string name="restore">Restore</string>
@@ -372,10 +374,16 @@
     <string name="gpu_max_freq_summary">Set the maximum frequency the GPU scales up to.</string>
     <string name="gpu_min_freq">GPU Minimum Frequency</string>
     <string name="gpu_min_freq_summary">Set the minimum frequency the GPU scales down to.</string>
+    <string name="npu_max_freq">NPU Maximum Frequency</string>
+    <string name="npu_max_freq_summary">Set the maximum frequency the NPU scales up to.</string>
+    <string name="npu_min_freq">NPU Minimum Frequency</string>
+    <string name="npu_min_freq_summary">Set the minimum frequency the NPU scales down to.</string>
     <string name="gpu_2d_governor">GPU 2D Governor</string>
     <string name="gpu_2d_governor_summary">Set the 2D governor of the GPU.</string>
     <string name="gpu_governor">GPU Governor</string>
     <string name="gpu_governor_summary">Set the governor of the GPU.</string>
+    <string name="npu_governor">NPU Governor</string>
+    <string name="npu_governor_summary">Set the governor of the NPU.</string>
     <string name="gpu_governor_tunables">GPU Governor Tunables</string>
     <string name="simple_gpu_algorithm">Simple GPU Algorithm</string>
     <string name="simple_gpu_algorithm_summary">An add-on for MSM Adreno TZ GPU Governor. Developed by faux123.</string>

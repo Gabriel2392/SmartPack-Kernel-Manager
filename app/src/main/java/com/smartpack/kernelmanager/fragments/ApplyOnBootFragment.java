@@ -44,6 +44,7 @@ import com.smartpack.kernelmanager.fragments.kernel.KLapseFragment;
 import com.smartpack.kernelmanager.fragments.kernel.KSMFragment;
 import com.smartpack.kernelmanager.fragments.kernel.LMKFragment;
 import com.smartpack.kernelmanager.fragments.kernel.MiscFragment;
+import com.smartpack.kernelmanager.fragments.kernel.NPUFragment;
 import com.smartpack.kernelmanager.fragments.kernel.ScreenFragment;
 import com.smartpack.kernelmanager.fragments.kernel.SoundFragment;
 import com.smartpack.kernelmanager.fragments.kernel.ThermalFragment;
@@ -72,6 +73,7 @@ public class ApplyOnBootFragment extends BaseFragment {
     public static final String CPU_HOTPLUG = "cpuhotplug_onboot";
     public static final String THERMAL = "thermal_onboot";
     public static final String GPU = "gpu_onboot";
+    public static final String NPU = "npu_onboot";
     public static final String SCREEN = "screen_onboot";
     public static final String KLAPSE = "klapse_onboot";
     public static final String WAKE = "wake_onboot";
@@ -99,6 +101,7 @@ public class ApplyOnBootFragment extends BaseFragment {
         sAssignments.put(CPUHotplugFragment.class, CPU_HOTPLUG);
         sAssignments.put(ThermalFragment.class, THERMAL);
         sAssignments.put(GPUFragment.class, GPU);
+        sAssignments.put(NPUFragment.class, NPU);
         sAssignments.put(ScreenFragment.class, SCREEN);
         sAssignments.put(KLapseFragment.class, KLAPSE);
         sAssignments.put(WakeFragment.class, WAKE);

@@ -31,9 +31,11 @@ import com.smartpack.kernelmanager.R;
 import com.smartpack.kernelmanager.fragments.kernel.CPUFragment;
 import com.smartpack.kernelmanager.fragments.kernel.CPUVoltageFragment;
 import com.smartpack.kernelmanager.fragments.kernel.GPUFragment;
+import com.smartpack.kernelmanager.fragments.kernel.NPUFragment;
 import com.smartpack.kernelmanager.utils.kernel.cpu.CPUTimes;
 import com.smartpack.kernelmanager.utils.kernel.cpuvoltage.Voltage;
 import com.smartpack.kernelmanager.utils.kernel.gpu.GPU;
+import com.smartpack.kernelmanager.utils.kernel.npu.NPU;
 
 import in.sunilpaulmathew.sCommon.Adapters.sPagerAdapter;
 
@@ -59,6 +61,9 @@ public class OverallActivity extends BaseActivity {
         }
         if (GPU.supported()) {
             adapter.AddFragment(new GPUFragment(), getString(R.string.gpu));
+        }
+        if (NPU.supported()) {
+            adapter.AddFragment(new NPUFragment(), getString(R.string.npu));
         }
 
         viewPager.setAdapter(adapter);
