@@ -111,7 +111,7 @@ public class CPUFreq {
     }
 
     public boolean isOffline(int cpu) {
-        return getCurFreq(cpu) == 0;
+        return getCurFreq(cpu) == 0 || !isCPUOnline(cpu);
     }
 
     public void applyCpu(String path, String value, int min, int max, Context context) {
@@ -610,6 +610,14 @@ public class CPUFreq {
                 category, Utils.strFormat(CPU_ONLINE, cpu), context);
         Control.runSetting(Control.chmod("444", Utils.strFormat(CPU_ONLINE, cpu)),
                 category, Utils.strFormat(CPU_ONLINE, cpu) + "chmod444", context);
+    }
+
+    public boolean isCPUOnline(int cpu) {
+        if (Utils.existFile(Utils.strFormat(CPU_ONLINE, cpu))) {
+            String value = Utils.readFile(Utils.strFormat(CPU_ONLINE, cpu));
+            return Utils.strToInt(value) == 1;
+        }
+        return true;
     }
 
     public List<Integer> getLITTLECpuRange() {

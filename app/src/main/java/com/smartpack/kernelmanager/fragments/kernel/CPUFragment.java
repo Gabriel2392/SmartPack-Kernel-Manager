@@ -672,8 +672,8 @@ public class CPUFragment extends RecyclerViewFragment {
                 if (core + 1 < usages.length) {
                     if (coreStates[core]) {
                         average += usages[core + 1];
+                        size++;
                     }
-                    size++;
                 }
             }
             average /= size;
@@ -689,11 +689,12 @@ public class CPUFragment extends RecyclerViewFragment {
                 if (switchView != null) {
                     final int core = array.keyAt(i);
                     int freq = freqs[core];
+                    boolean isCPUOffline = mCPUFreq.isOffline(core);
 
-                    String freqText = freq == 0 ? getString(R.string.offline) : (freq / 1000)
+                    String freqText = isCPUOffline ? getString(R.string.offline) : (freq / 1000)
                             + getString(R.string.mhz);
                     switchView.clearOnSwitchListener();
-                    switchView.setChecked(freq != 0);
+                    switchView.setChecked(!isCPUOffline);
                     switchView.setSummary(getString(R.string.core, core + 1) + " - " + freqText);
                     switchView.addOnSwitchListener((switchView1, isChecked) -> {
                         if (core == 0) {
