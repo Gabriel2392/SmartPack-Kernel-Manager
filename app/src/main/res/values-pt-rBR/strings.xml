@@ -989,7 +989,7 @@
     <string name="update_check_message">"O SmartPack-Kernel Manager verificará por uma nova versão do %s uma vez por dia!"</string>
     <string name="other_options">"Outras opções"</string>
     <string name="shell">"Executar comando shell"</string>
-    <string name="terminal">"Teminal"</string>
+    <string name="terminal">"Terminal"</string>
     <string name="shell_summary">"insira-o-comando-aqui"</string>
     <string name="support">"Suporte"</string>
     <string name="support_summary">"Visite a página de suporte"</string>
