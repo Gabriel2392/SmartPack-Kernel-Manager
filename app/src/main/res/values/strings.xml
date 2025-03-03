@@ -69,6 +69,7 @@
     <string name="gpu">GPU</string>
     <string name="npu">NPU</string>
     <string name="thermal">Thermal</string>
+    <string name="thermal_zones">TZ</string>
     <string name="battery">Battery</string>
     <string name="sound">Sound</string>
     <string name="screen">Screen</string>
@@ -952,6 +953,9 @@
     <string name="sure_message">Are you sure to flash %s?</string>
     <string name="select_question">Select %s?</string>
     <string name="wrong_extension">Please select a file with %s extension.</string>
+
+    <string name="tm">Thermal</string>
+    <string name="tm_desc">This page displays all thermal zones for your kernel.</string>
 
     <!-- Build prop Editor -->
     <string name="build_prop_uneditable">Unfortunately, \'build.prop\' in your device is not writable!</string>

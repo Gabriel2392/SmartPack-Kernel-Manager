@@ -28,6 +28,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 import com.smartpack.kernelmanager.R;
+import com.smartpack.kernelmanager.fragments.kernel.AllThermalFragment;
 import com.smartpack.kernelmanager.fragments.kernel.CPUFragment;
 import com.smartpack.kernelmanager.fragments.kernel.CPUVoltageFragment;
 import com.smartpack.kernelmanager.fragments.kernel.GPUFragment;
@@ -35,6 +36,7 @@ import com.smartpack.kernelmanager.fragments.kernel.NPUFragment;
 import com.smartpack.kernelmanager.utils.kernel.cpu.CPUTimes;
 import com.smartpack.kernelmanager.utils.kernel.cpuvoltage.Voltage;
 import com.smartpack.kernelmanager.utils.kernel.gpu.GPU;
+import com.smartpack.kernelmanager.utils.kernel.allthermal.AllThermal;
 import com.smartpack.kernelmanager.utils.kernel.npu.NPU;
 
 import in.sunilpaulmathew.sCommon.Adapters.sPagerAdapter;
@@ -64,6 +66,9 @@ public class OverallActivity extends BaseActivity {
         }
         if (NPU.supported()) {
             adapter.AddFragment(new NPUFragment(), getString(R.string.npu));
+        }
+        if (AllThermal.supported()) {
+            adapter.AddFragment(new AllThermalFragment(), getString(R.string.thermal_zones));
         }
 
         viewPager.setAdapter(adapter);

@@ -48,6 +48,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationView;
 import com.smartpack.kernelmanager.R;
 import com.smartpack.kernelmanager.fragments.BaseFragment;
+import com.smartpack.kernelmanager.fragments.kernel.AllThermalFragment;
 import com.smartpack.kernelmanager.fragments.kernel.BatteryFragment;
 import com.smartpack.kernelmanager.fragments.kernel.CPUFragment;
 import com.smartpack.kernelmanager.fragments.kernel.CPUHotplugFragment;
@@ -87,6 +88,7 @@ import com.smartpack.kernelmanager.utils.Device;
 import com.smartpack.kernelmanager.utils.Prefs;
 import com.smartpack.kernelmanager.utils.Utils;
 import com.smartpack.kernelmanager.utils.ViewUtils;
+import com.smartpack.kernelmanager.utils.kernel.allthermal.AllThermalSensors;
 import com.smartpack.kernelmanager.utils.kernel.battery.Battery;
 import com.smartpack.kernelmanager.utils.kernel.cpuhotplug.Hotplug;
 import com.smartpack.kernelmanager.utils.kernel.cpuvoltage.Voltage;
@@ -96,6 +98,7 @@ import com.smartpack.kernelmanager.utils.kernel.io.IO;
 import com.smartpack.kernelmanager.utils.kernel.ksm.KSM;
 import com.smartpack.kernelmanager.utils.kernel.led.LED;
 import com.smartpack.kernelmanager.utils.kernel.lmk.LMK;
+import com.smartpack.kernelmanager.utils.kernel.allthermal.AllThermal;
 import com.smartpack.kernelmanager.utils.kernel.npu.NPU;
 import com.smartpack.kernelmanager.utils.kernel.screen.KLapse;
 import com.smartpack.kernelmanager.utils.kernel.screen.Screen;
@@ -201,6 +204,9 @@ public class NavigationActivity extends BaseActivity
         }
         if (NPU.supported()) {
             mFragments.add(new NavigationActivity.NavigationFragment(R.string.npu, NPUFragment.class, R.drawable.ic_npu));
+        }
+        if (AllThermal.supported()) {
+            mFragments.add(new NavigationActivity.NavigationFragment(R.string.thermal_zones, AllThermalFragment.class, R.drawable.ic_tz));
         }
         if (Thermal.supported()) {
             mFragments.add(new NavigationActivity.NavigationFragment(R.string.thermal, ThermalFragment.class, R.drawable.ic_temperature));
