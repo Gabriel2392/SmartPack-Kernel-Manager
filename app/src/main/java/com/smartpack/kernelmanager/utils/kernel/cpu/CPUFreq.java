@@ -83,6 +83,8 @@ public class CPUFreq {
     private static final String CPU_GOVERNOR_TUNABLES = "/sys/devices/system/cpu/cpufreq/%s";
     private static final String CPU_GOVERNOR_TUNABLES_CORE = "/sys/devices/system/cpu/cpu%d/cpufreq/%s";
 
+    private static final String EGO_GOVERNOR_TUNABLES_GROUP = "/sys/devices/platform/ems/ego/coregroup%d";
+
     private static final String CPU_POLICY0 = "/sys/devices/system/cpu/cpufreq/policy0";
     private static final String CPU_POLICY6 = "/sys/devices/system/cpu/cpufreq/policy6";
     private static final String CPU_POLICY0_MAX_FREQ = CPU_POLICY0 + "/scaling_max_freq";
@@ -103,6 +105,9 @@ public class CPUFreq {
     }
 
     public String getGovernorTunablesPath(int cpu, String governor) {
+        if (governor.equals("energy_aware")) {
+            return EGO_GOVERNOR_TUNABLES_GROUP;
+        }
         if (Utils.existFile(Utils.strFormat(CPU_GOVERNOR_TUNABLES_CORE, cpu, governor))) {
             return CPU_GOVERNOR_TUNABLES_CORE.replace("%s", governor);
         } else {
