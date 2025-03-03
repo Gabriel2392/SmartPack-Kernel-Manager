@@ -50,6 +50,10 @@ public class RootFile {
         return RootUtils.runAndGetOutput("cat '" + mFile + "'");
     }
 
+    public static String readRegex(String mFile) {
+        return RootUtils.runAndGetOutput("cat " + mFile);
+    }
+
     public static void write(String mFile, String text, boolean append) {
         String[] array = text.split("\\r?\\n");
         if (!append) delete(mFile);

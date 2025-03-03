@@ -428,6 +428,9 @@ public class Utils {
 
     public static String readFile(String file, boolean root) {
         if (root) {
+            if (file.contains("*")) {
+                return RootFile.readRegex(file);
+            }
             return RootFile.read(file);
         }
 

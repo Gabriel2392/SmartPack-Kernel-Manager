@@ -46,12 +46,12 @@ public class NPUFreq {
         return sIOInstance;
     }
 
-    private static final String MAX_S5E8825_FREQ = "/sys/class/devfreq/17000030.devfreq_npu/max_freq";
-    private static final String MIN_S5E8825_FREQ = "/sys/class/devfreq/17000030.devfreq_npu/min_freq";
-    private static final String CUR_S5E8825_FREQ = "/sys/class/devfreq/17000030.devfreq_npu/cur_freq";
-    private static final String AVAILABLE_S5E8825_FREQS = "/sys/class/devfreq/17000030.devfreq_npu/available_frequencies";
-    private static final String SCALING_S5E8825_GOVERNOR = "/sys/class/devfreq/17000030.devfreq_npu/governor";
-    private static final String AVAILABLE_S5E8825_GOVERNORS = "/sys/class/devfreq/17000030.devfreq_npu/available_governors";
+    private static final String MAX_EXYNOS_FREQ = "/sys/class/devfreq/*.devfreq_npu/max_freq";
+    private static final String MIN_EXYNOS_FREQ = "/sys/class/devfreq/*.devfreq_npu/min_freq";
+    private static final String CUR_EXYNOS_FREQ = "/sys/class/devfreq/*.devfreq_npu/cur_freq";
+    private static final String AVAILABLE_EXYNOS_FREQS = "/sys/class/devfreq/*.devfreq_npu/available_frequencies";
+    private static final String SCALING_EXYNOS_GOVERNOR = "/sys/class/devfreq/*.devfreq_npu/governor";
+    private static final String AVAILABLE_EXYNOS_GOVERNORS = "/sys/class/devfreq/*.devfreq_npu/available_governors";
     private static final String EXYNOS_LOAD = "/sys/devices/platform/npu_exynos/load";
 
     private final List<String> mNpuLoads = new ArrayList<>();
@@ -65,17 +65,17 @@ public class NPUFreq {
     {
         mNpuLoads.add(EXYNOS_LOAD);
 
-        mCurrentFreqs.put(CUR_S5E8825_FREQ, 1000);
+        mCurrentFreqs.put(CUR_EXYNOS_FREQ, 1000);
 
-        mMaxFreqs.put(MAX_S5E8825_FREQ, 1000);
+        mMaxFreqs.put(MAX_EXYNOS_FREQ, 1000);
 
-        mMinFreqs.put(MIN_S5E8825_FREQ, 1000);
+        mMinFreqs.put(MIN_EXYNOS_FREQ, 1000);
 
-        mAvailableFreqs.put(AVAILABLE_S5E8825_FREQS, 1000);
+        mAvailableFreqs.put(AVAILABLE_EXYNOS_FREQS, 1000);
 
-        mScalingGovernors.add(SCALING_S5E8825_GOVERNOR);
+        mScalingGovernors.add(SCALING_EXYNOS_GOVERNOR);
 
-        mAvailableGovernors.add(AVAILABLE_S5E8825_GOVERNORS);
+        mAvailableGovernors.add(AVAILABLE_EXYNOS_GOVERNORS);
     }
 
     private String LOAD;
