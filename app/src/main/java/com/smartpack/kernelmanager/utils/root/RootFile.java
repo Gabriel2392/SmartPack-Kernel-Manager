@@ -47,11 +47,10 @@ public class RootFile {
     }
 
     public static String read(String mFile) {
+        if (mFile.contains("*")) {
+            return RootUtils.runAndGetOutput("cat " + mFile);
+        }
         return RootUtils.runAndGetOutput("cat '" + mFile + "'");
-    }
-
-    public static String readRegex(String mFile) {
-        return RootUtils.runAndGetOutput("cat " + mFile);
     }
 
     public static void write(String mFile, String text, boolean append) {

@@ -60,6 +60,9 @@ public class Control {
     }
 
     public static String write(String text, String path) {
+        if (path.contains("*")) {
+            return "echo '" + text + "' | tee " + path;
+        }
         return "echo '" + text + "' > " + path;
     }
 
